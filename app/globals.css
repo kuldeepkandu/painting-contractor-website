@@ -1,0 +1,239 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-dm-serif), "Times New Roman", serif;
+  --font-sans: var(--font-sora), "Segoe UI", system-ui, sans-serif;
+  --font-serif: var(--font-dm-serif), "Times New Roman", serif;
+  --font-mono: "ui-monospace", monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(0.985 0.004 80);
+  --foreground: oklch(0.24 0.02 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.02 250);
+  --primary: oklch(0.32 0.08 252);
+  --primary-foreground: oklch(0.98 0.005 85);
+  --secondary: oklch(0.97 0.01 74);
+  --secondary-foreground: oklch(0.3 0.06 252);
+  --muted: oklch(0.96 0.01 74);
+  --muted-foreground: oklch(0.5 0.03 252);
+  --accent: oklch(0.67 0.2 35);
+  --accent-foreground: oklch(0.98 0.006 84);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.89 0.012 250);
+  --input: oklch(0.89 0.012 250);
+  --ring: oklch(0.67 0.2 35);
+  --chart-1: oklch(0.67 0.2 35);
+  --chart-2: oklch(0.59 0.13 250);
+  --chart-3: oklch(0.55 0.17 140);
+  --chart-4: oklch(0.74 0.16 72);
+  --chart-5: oklch(0.62 0.16 20);
+  --radius: 0.65rem;
+  --sidebar: oklch(0.985 0.004 80);
+  --sidebar-foreground: oklch(0.24 0.02 250);
+  --sidebar-primary: oklch(0.32 0.08 252);
+  --sidebar-primary-foreground: oklch(0.98 0.005 85);
+  --sidebar-accent: oklch(0.97 0.01 74);
+  --sidebar-accent-foreground: oklch(0.3 0.06 252);
+  --sidebar-border: oklch(0.89 0.012 250);
+  --sidebar-ring: oklch(0.67 0.2 35);
+}
+
+.dark {
+  --background: oklch(0.2 0.02 250);
+  --foreground: oklch(0.97 0.005 84);
+  --card: oklch(0.24 0.02 250);
+  --card-foreground: oklch(0.97 0.005 84);
+  --popover: oklch(0.24 0.02 250);
+  --popover-foreground: oklch(0.97 0.005 84);
+  --primary: oklch(0.94 0.03 77);
+  --primary-foreground: oklch(0.24 0.02 250);
+  --secondary: oklch(0.28 0.02 250);
+  --secondary-foreground: oklch(0.97 0.005 84);
+  --muted: oklch(0.28 0.02 250);
+  --muted-foreground: oklch(0.76 0.02 80);
+  --accent: oklch(0.69 0.19 35);
+  --accent-foreground: oklch(0.18 0.02 250);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.69 0.19 35);
+  --chart-1: oklch(0.69 0.19 35);
+  --chart-2: oklch(0.65 0.13 250);
+  --chart-3: oklch(0.62 0.16 140);
+  --chart-4: oklch(0.76 0.16 72);
+  --chart-5: oklch(0.67 0.14 20);
+  --sidebar: oklch(0.24 0.02 250);
+  --sidebar-foreground: oklch(0.97 0.005 84);
+  --sidebar-primary: oklch(0.69 0.19 35);
+  --sidebar-primary-foreground: oklch(0.18 0.02 250);
+  --sidebar-accent: oklch(0.28 0.02 250);
+  --sidebar-accent-foreground: oklch(0.97 0.005 84);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.69 0.19 35);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(
+        circle at 12% 0%,
+        color-mix(in oklch, var(--accent), transparent 85%) 0,
+        transparent 38%
+      ),
+      radial-gradient(
+        circle at 100% 0%,
+        color-mix(in oklch, var(--primary), transparent 88%) 0,
+        transparent 42%
+      );
+    min-height: 100vh;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .brand-gradient {
+    background: linear-gradient(
+      120deg,
+      color-mix(in oklch, var(--primary), black 5%) 0%,
+      var(--primary) 44%,
+      var(--accent) 100%
+    );
+  }
+
+  .soft-card {
+    background: linear-gradient(
+      150deg,
+      color-mix(in oklch, var(--card), white 2%) 0%,
+      color-mix(in oklch, var(--secondary), white 22%) 100%
+    );
+    box-shadow: 0 16px 40px color-mix(in oklch, var(--primary), transparent 85%);
+  }
+
+  .paint-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .paint-sheen::after {
+    content: "";
+    position: absolute;
+    inset: -120% -35% auto;
+    height: 220%;
+    transform: rotate(18deg);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgb(255 255 255 / 0.34) 48%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+}
+
+/* Swiper Slider Styles */
+@layer utilities {
+  /* Custom Swiper Navigation & Pagination */
+
+  .swiper-pagination {
+    bottom: 10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: max-content !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 9999px !important;
+    background: transparent !important;
+    border: 1.5px solid #f89076 !important;
+    opacity: 1 !important;
+    margin: 0 6px !important;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    border-color: gray !important;
+    transform: scale(1.2);
+  }
+
+  /* Equal Height for Swiper Slides */
+  .swiper-wrapper {
+    align-items: stretch !important;
+    display: flex !important;
+  }
+
+  .swiper-slide {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  .swiper-slide > * {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
