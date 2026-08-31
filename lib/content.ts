@@ -42,7 +42,7 @@ export const services: Service[] = [
       'Final inspection & touch-ups',
     ],
     materials: ['Asian Paints Royale', 'Berger Silk', 'Dulux Velvet Touch'],
-    costRange: '$1.20 – $2.50 / sq ft',
+    costRange: '₹20 – ₹45 / sq ft',
   },
   {
     slug: 'exterior-painting',
@@ -62,7 +62,7 @@ export const services: Service[] = [
       'Quality inspection & sign-off',
     ],
     materials: ['Apex Ultima', 'Weathercoat Long Life', 'Dulux Weathershield'],
-    costRange: '$1.50 – $3.00 / sq ft',
+    costRange: '₹25 – ₹55 / sq ft',
   },
   {
     slug: 'texture-painting',
@@ -82,7 +82,7 @@ export const services: Service[] = [
       'Sealing & protective coating',
     ],
     materials: ['Royale Play', 'Texture Pro', 'Marmorino Lime Plaster'],
-    costRange: '$2.50 – $7.00 / sq ft',
+    costRange: '₹60 – ₹180 / sq ft',
   },
   {
     slug: 'waterproofing',
@@ -102,7 +102,7 @@ export const services: Service[] = [
       'Water test & verification',
     ],
     materials: ['Dr. Fixit', 'SmartCare Damp Proof', 'Roff Waterproofing'],
-    costRange: '$1.80 – $4.50 / sq ft',
+    costRange: '₹40 – ₹120 / sq ft',
   },
   {
     slug: 'wall-putty',
@@ -122,7 +122,7 @@ export const services: Service[] = [
       'Sanding & smoothing',
     ],
     materials: ['Birla White Putty', 'JK Wall Putty', 'Asian Paints TruCare'],
-    costRange: '$0.60 – $1.20 / sq ft',
+    costRange: '₹25 – ₹55 / sq ft',
   },
   {
     slug: 'wood-polish',
@@ -142,7 +142,7 @@ export const services: Service[] = [
       'Buffing & final finish',
     ],
     materials: ['MRF Melamine', 'PU Polish', 'Italian Wax Polish'],
-    costRange: '$1.50 – $5.00 / sq ft',
+    costRange: '₹50 – ₹175 / sq ft',
   },
   {
     slug: 'metal-painting',
@@ -162,7 +162,7 @@ export const services: Service[] = [
       'Drying & inspection',
     ],
     materials: ['Apcolite Enamel', 'Berger Luxol', 'Zinc-rich Primer'],
-    costRange: '$1.00 – $3.50 / sq ft',
+    costRange: '₹25 – ₹90 / sq ft',
   },
   {
     slug: 'commercial-painting',
@@ -202,7 +202,7 @@ export const services: Service[] = [
       'Clean handover',
     ],
     materials: ['Tractor Emulsion', 'Berger Easy Clean', 'Premium Emulsion'],
-    costRange: '$0.90 – $2.20 / sq ft',
+    costRange: '₹18 – ₹40 / sq ft',
   },
   {
     slug: 'renovation-painting',
@@ -222,7 +222,7 @@ export const services: Service[] = [
       'Premium finish coats',
     ],
     materials: ['TruCare Putty', 'Royale Emulsion', 'Damp Proof Primer'],
-    costRange: '$1.40 – $3.20 / sq ft',
+    costRange: '₹30 – ₹75 / sq ft',
   },
 ]
 

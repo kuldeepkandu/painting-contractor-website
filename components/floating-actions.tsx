@@ -17,8 +17,8 @@ export function FloatingActions() {
         <MessageCircle className="h-6 w-6" />
       </a>
       <a
-        href={siteConfig.phoneHref}
-        aria-label="Call now"
+        href={siteConfig.phoneNumbers[0].href}
+        aria-label={`Call ${siteConfig.phoneNumbers[0].display}`}
         className="flex items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg shadow-black/20 transition-transform hover:scale-105"
         style={{ height: '3.25rem', width: '3.25rem' }}
       >

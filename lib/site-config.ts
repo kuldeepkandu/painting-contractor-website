@@ -1,8 +1,11 @@
 export const siteConfig = {
-  name: 'Chhotelal Kandu',
-  tagline: 'Professional Painting Contractor',
-  phone: '9930959409, 8779035017',
-  phoneHref: 'tel:+919930959409',
+  name: 'KANDU COLORCRAFT',
+  tagline: 'Painting • Finishing • Protection',
+  brandPromise: 'Crafting Colours. Transforming Spaces.',
+  phoneNumbers: [
+    { display: '9930959409', href: 'tel:+919930959409' },
+    { display: '7021134754', href: 'tel:+917021134754' },
+  ],
   whatsapp: '919930959409',
   whatsappHref: 'https://wa.me/919930959409',
   email: 'chhotelalkandu@profinishpainters.com',

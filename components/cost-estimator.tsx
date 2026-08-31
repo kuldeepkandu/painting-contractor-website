@@ -14,12 +14,12 @@ import {
 } from '@/components/ui/select'
 
 const serviceRates: Record<string, { label: string; min: number; max: number }> = {
-  interior: { label: 'Interior Painting', min: 1.2, max: 2.5 },
-  exterior: { label: 'Exterior Painting', min: 1.5, max: 3.0 },
-  texture: { label: 'Texture Painting', min: 2.5, max: 7.0 },
-  putty: { label: 'Wall Putty + Paint', min: 1.8, max: 3.4 },
-  waterproof: { label: 'Waterproofing', min: 1.8, max: 4.5 },
-  wood: { label: 'Wood Polishing', min: 1.5, max: 5.0 },
+  interior: { label: 'Interior Painting', min: 20, max: 30 },
+  exterior: { label: 'Exterior Painting', min: 25, max: 35 },
+  texture: { label: 'Texture Painting', min: 60, max: 85 },
+  putty: { label: 'Wall Putty + Paint', min: 30, max: 45 },
+  waterproof: { label: 'Waterproofing', min: 40, max: 60 },
+  wood: { label: 'Wood Polishing', min: 50, max: 75 },
 }
 
 const qualityMultiplier: Record<string, { label: string; factor: number }> = {
@@ -36,44 +36,55 @@ const conditionMultiplier: Record<string, { label: string; factor: number }> = {
 
 export function CostEstimator() {
   const [area, setArea] = useState('1000')
-  const [service, setService] = useState('interior')
+  const [selectedServices, setSelectedServices] = useState(['interior'])
   const [quality, setQuality] = useState('premium')
   const [condition, setCondition] = useState('good')
 
   const { low, high } = useMemo(() => {
     const sqft = Math.max(0, Number(area) || 0)
-    const rate = serviceRates[service]
     const q = qualityMultiplier[quality].factor
     const c = conditionMultiplier[condition].factor
     return {
-      low: Math.round(sqft * rate.min * q * c),
-      high: Math.round(sqft * rate.max * q * c),
+      low: Math.round(
+        sqft * selectedServices.reduce((total, service) => total + serviceRates[service].min, 0) * q * c
+      ),
+      high: Math.round(
+        sqft * selectedServices.reduce((total, service) => total + serviceRates[service].max, 0) * q * c
+      ),
     }
-  }, [area, service, quality, condition])
+  }, [area, selectedServices, quality, condition])
 
-  const fmt = (n: number) => `$${n.toLocaleString()}`
+  const selectedServiceLabels = selectedServices.map((service) => serviceRates[service].label.toLowerCase())
+
+  const fmt = (n: number) =>
+    new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n)
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <Card className="soft-card border-border/80 p-6">
         <div className="grid gap-5">
-          <div className="grid gap-2">
-            <Label htmlFor="area">Area to paint (sq ft)</Label>
+          <div className="relative">
             <Input
               id="area"
               type="number"
               min={0}
               value={area}
               onChange={(e) => setArea(e.target.value)}
-              placeholder="e.g. 1000"
+              placeholder=" "
+              className="peer h-12 w-full px-3 pt-4"
             />
+            <Label
+              htmlFor="area"
+              className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 bg-card px-1 text-muted-foreground transition-all peer-focus:top-0 peer-focus:text-xs peer-focus:text-accent peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
+            >
+              Area to paint (sq ft)
+            </Label>
           </div>
 
-          <div className="grid gap-2">
-            <Label htmlFor="svc">Service type</Label>
-            <Select value={service} onValueChange={setService}>
-              <SelectTrigger id="svc">
-                <SelectValue />
+          <div>
+            <Select multiple value={selectedServices} onValueChange={setSelectedServices}>
+              <SelectTrigger id="svc" className="w-full px-3 data-[size=default]:h-12">
+                <SelectValue placeholder="Select one or more services" />
               </SelectTrigger>
               <SelectContent>
                 {Object.entries(serviceRates).map(([k, v]) => (
@@ -85,10 +96,9 @@ export function CostEstimator() {
             </Select>
           </div>
 
-          <div className="grid gap-2">
-            <Label htmlFor="quality">Paint quality</Label>
+          <div>
             <Select value={quality} onValueChange={setQuality}>
-              <SelectTrigger id="quality">
+              <SelectTrigger id="quality" className="w-full px-3 data-[size=default]:h-12">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -101,10 +111,9 @@ export function CostEstimator() {
             </Select>
           </div>
 
-          <div className="grid gap-2">
-            <Label htmlFor="cond">Surface condition</Label>
+          <div>
             <Select value={condition} onValueChange={setCondition}>
-              <SelectTrigger id="cond">
+              <SelectTrigger id="cond" className="w-full px-3 data-[size=default]:h-12">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -128,7 +137,7 @@ export function CostEstimator() {
           {fmt(low)} <span className="text-primary-foreground/55">–</span> {fmt(high)}
         </p>
         <p className="mt-4 text-sm leading-relaxed text-primary-foreground/85">
-          This is an indicative range based on {serviceRates[service].label.toLowerCase()} at{' '}
+          This is an indicative range based on {selectedServiceLabels.join(', ') || 'the selected services'} at{' '}
           {qualityMultiplier[quality].label.toLowerCase()} quality. For an exact, itemised quote,
           book a free on-site inspection.
         </p>

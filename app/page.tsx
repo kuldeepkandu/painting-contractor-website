@@ -32,13 +32,16 @@ export default function HomePage() {
           >
             Get Free Quote
           </Link>
-          <a
-            href={siteConfig.phoneHref}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/60 bg-white/10 px-7 py-3 text-lg font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
-          >
-            <Phone className="h-5 w-5" />
-            {siteConfig.phone}
-          </a>
+          {siteConfig.phoneNumbers.map((phone) => (
+            <a
+              key={phone.href}
+              href={phone.href}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/60 bg-white/10 px-7 py-3 text-lg font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
+            >
+              <Phone className="h-5 w-5" />
+              {phone.display}
+            </a>
+          ))}
         </div>
       </SwiperBanner>
       <StatsBar />

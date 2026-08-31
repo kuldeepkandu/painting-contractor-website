@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 }
 
 const contactMethods = [
-  {
+  ...siteConfig.phoneNumbers.map((phone) => ({
     icon: Phone,
     label: 'Call Us',
-    value: siteConfig.phone,
-    href: siteConfig.phoneHref,
-  },
+    value: phone.display,
+    href: phone.href,
+  })),
   {
     icon: MessageCircle,
     label: 'WhatsApp',
@@ -59,7 +59,7 @@ export default function ContactPage() {
             <div className="mt-8 grid gap-4">
               {contactMethods.map((method) => (
                 <a
-                  key={method.label}
+                  key={method.href}
                   href={method.href}
                   className="soft-card flex items-center gap-4 rounded-xl border border-border/80 p-4 transition-colors hover:border-primary"
                 >

@@ -43,26 +43,66 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
       <div className={compact ? 'grid gap-4' : 'grid gap-4 sm:grid-cols-2'}>
-        <div className="grid gap-2">
-          <Label htmlFor="name">Full Name</Label>
-          <Input id="name" name="name" required placeholder="John Smith" />
+        <div className="relative">
+          <Input
+            id="name"
+            name="name"
+            required
+            placeholder=" "
+            className="peer h-12 px-3 pt-4"
+          />
+          <Label
+            htmlFor="name"
+            className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 bg-card px-1 text-muted-foreground transition-all peer-focus:top-0 peer-focus:text-xs peer-focus:text-accent peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
+          >
+            Full name
+          </Label>
         </div>
-        <div className="grid gap-2">
-          <Label htmlFor="phone">Phone Number</Label>
-          <Input id="phone" name="phone" type="tel" required placeholder="+1 (555) 000-0000" />
+        <div className="relative">
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            inputMode="numeric"
+            pattern="[0-9]{10}"
+            maxLength={10}
+            placeholder=" "
+            className="peer h-12 px-3 pt-4"
+            onChange={(event) => {
+              event.currentTarget.value = event.currentTarget.value.replace(/\D/g, '')
+            }}
+          />
+          <Label
+            htmlFor="phone"
+            className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 bg-card px-1 text-muted-foreground transition-all peer-focus:top-0 peer-focus:text-xs peer-focus:text-accent peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
+          >
+            10-digit mobile number
+          </Label>
         </div>
       </div>
 
       <div className={compact ? 'grid gap-4' : 'grid gap-4 sm:grid-cols-2'}>
-        <div className="grid gap-2">
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" name="email" type="email" placeholder="you@email.com" />
+        <div className="relative">
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder=" "
+            className="peer h-12 px-3 pt-4"
+            required
+          />
+          <Label
+            htmlFor="email"
+            className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 bg-card px-1 text-muted-foreground transition-all peer-focus:top-0 peer-focus:text-xs peer-focus:text-accent peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
+          >
+            Email address
+          </Label>
         </div>
-        <div className="grid gap-2">
-          <Label htmlFor="service">Service Needed</Label>
-          <Select name="service">
-            <SelectTrigger id="service">
-              <SelectValue placeholder="Select a service" />
+        <div>
+          <Select name="service" multiple>
+            <SelectTrigger id="service" className="w-full px-3 data-[size=default]:h-12">
+              <SelectValue placeholder="Select one or more services" />
             </SelectTrigger>
             <SelectContent>
               {services.map((s) => (
@@ -75,14 +115,21 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
         </div>
       </div>
 
-      <div className="grid gap-2">
-        <Label htmlFor="message">Project Details</Label>
+      <div className="relative">
         <Textarea
           id="message"
           name="message"
           rows={compact ? 3 : 4}
-          placeholder="Tell us about your space, approximate area, and timeline…"
+          placeholder=" "
+          className="peer px-3 pt-5"
+          required
         />
+        <Label
+          htmlFor="message"
+          className="pointer-events-none absolute top-5 left-3 -translate-y-1/2 bg-card px-1 text-muted-foreground transition-all peer-focus:top-0 peer-focus:text-xs peer-focus:text-accent peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
+        >
+          Project details, area and preferred timeline
+        </Label>
       </div>
 
       <Button

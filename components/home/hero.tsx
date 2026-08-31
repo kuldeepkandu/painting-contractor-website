@@ -36,9 +36,15 @@ export function Hero() {
             <Link href="/estimator" className="paint-sheen inline-flex items-center justify-center rounded-full bg-accent px-5 py-2.5 text-lg font-medium text-accent-foreground transition-all hover:bg-accent/90">
               Get Free Quote
             </Link>
-            <a href={siteConfig.phoneHref} className="inline-flex items-center justify-center rounded-full border border-primary/20 bg-white/70 px-5 py-2.5 text-lg font-medium transition-all hover:bg-white">
-              <Phone className="mr-2 h-4 w-4" /> {siteConfig.phone}
-            </a>
+            {siteConfig.phoneNumbers.map((phone) => (
+              <a
+                key={phone.href}
+                href={phone.href}
+                className="inline-flex items-center justify-center rounded-full border border-primary/20 bg-white/70 px-5 py-2.5 text-lg font-medium transition-all hover:bg-white"
+              >
+                <Phone className="mr-2 h-4 w-4" /> {phone.display}
+              </a>
+            ))}
           </div>
 
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">

@@ -76,18 +76,21 @@ export function SiteHeader() {
           >
             Get Free Quote
           </Link>
-          <a
-            href={siteConfig.phoneHref}
-            aria-label="Call now"
-            className={cn(
-              'hidden rounded-full border p-2 transition-all sm:inline-flex',
-              transparent
-                ? 'border-white/40 bg-white/10 text-white hover:bg-white/20'
-                : 'border-border bg-background text-foreground hover:bg-muted',
-            )}
-          >
-            <Phone className="h-4 w-4" />
-          </a>
+          {siteConfig.phoneNumbers.map((phone) => (
+            <a
+              key={phone.href}
+              href={phone.href}
+              aria-label={`Call ${phone.display}`}
+              className={cn(
+                'hidden rounded-full border p-2 transition-all sm:inline-flex',
+                transparent
+                  ? 'border-white/40 bg-white/10 text-white hover:bg-white/20'
+                  : 'border-border bg-background text-foreground hover:bg-muted',
+              )}
+            >
+              <Phone className="h-4 w-4" />
+            </a>
+          ))}
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
@@ -120,9 +123,15 @@ export function SiteHeader() {
                 <Link href="/estimator" onClick={() => setOpen(false)} className="paint-sheen mt-4 inline-flex items-center justify-center rounded-lg bg-accent px-3 py-2 text-accent-foreground transition-all hover:bg-accent/90">
                   Get Free Quote
                 </Link>
-                <a href={siteConfig.phoneHref} className="mt-2 inline-flex items-center justify-center rounded-lg border border-border bg-background px-3 py-2 transition-all hover:bg-muted">
-                  <Phone className="mr-2 h-4 w-4" /> Call Now
-                </a>
+                {siteConfig.phoneNumbers.map((phone) => (
+                  <a
+                    key={phone.href}
+                    href={phone.href}
+                    className="mt-2 inline-flex items-center justify-center rounded-lg border border-border bg-background px-3 py-2 transition-all hover:bg-muted"
+                  >
+                    <Phone className="mr-2 h-4 w-4" /> Call {phone.display}
+                  </a>
+                ))}
               </div>
             </SheetContent>
           </Sheet>

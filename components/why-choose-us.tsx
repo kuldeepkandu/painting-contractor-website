@@ -1,4 +1,4 @@
-import { Users, Gem, Clock, BadgeDollarSign, ShieldCheck, ClipboardCheck } from 'lucide-react'
+import { Users, Gem, Clock, IndianRupee, ShieldCheck, ClipboardCheck } from 'lucide-react'
 
 const reasons = [
   {
@@ -17,7 +17,7 @@ const reasons = [
     description: 'Clear timelines and disciplined scheduling — we finish when we promise.',
   },
   {
-    icon: BadgeDollarSign,
+    icon: IndianRupee,
     title: 'Affordable Pricing',
     description: 'Transparent, itemised quotes with no hidden costs or surprises.',
   },

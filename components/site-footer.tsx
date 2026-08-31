@@ -16,8 +16,8 @@ export function SiteFooter() {
               <span className="font-serif text-lg font-semibold">{siteConfig.name}</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/70">
-              Premium residential and commercial painting contractors delivering flawless
-              finishes with skilled painters and trusted materials.
+              {siteConfig.brandPromise} Premium residential and commercial painting with skilled
+              painters and trusted materials.
             </p>
           </div>
 
@@ -58,9 +58,13 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-3 text-sm text-primary-foreground/70">
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-white" />
-                <a href={siteConfig.phoneHref} className="hover:text-white">
-                  {siteConfig.phone}
-                </a>
+                <div className="flex flex-col gap-1">
+                  {siteConfig.phoneNumbers.map((phone) => (
+                    <a key={phone.href} href={phone.href} className="hover:text-white">
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-white" />
