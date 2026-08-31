@@ -14,9 +14,9 @@ export function SiteFooter() {
               <Image
                 src="/KanduColorCraft.png"
                 alt={siteConfig.name}
-                width={90}
-                height={80}
-                className="h-16 w-20"
+                width={128}
+                height={128}
+                className="h-10 w-16 md:h-20 md:w-56 lg:h-20 lg:w-50 xl:h-20 xl:w-50"
               />
               <span className="sr-only">{siteConfig.name}</span>
             </Link>

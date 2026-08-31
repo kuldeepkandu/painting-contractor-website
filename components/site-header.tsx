@@ -41,7 +41,7 @@ export function SiteHeader() {
             alt={siteConfig.name}
             width={128}
             height={128}
-            className="h-10 w-20 md:h-20 md:w-56 lg:h-24 lg:w-64 xl:h-28 xl:w-80"
+            className="h-10 w-16 md:h-20 md:w-56 lg:h-20 lg:w-50 xl:h-20 xl:w-50"
             priority
           />
           <span className="sr-only">{siteConfig.name} - {siteConfig.tagline}</span>
