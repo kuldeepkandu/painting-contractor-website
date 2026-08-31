@@ -28,9 +28,9 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'fixed top-0 z-50 w-full transition-all duration-300',
+        'group fixed top-0 z-50 w-full transition-all duration-300',
         transparent
-          ? 'border-b border-transparent bg-transparent'
+          ? 'border-b border-transparent bg-transparent hover:border-border/80 hover:bg-background/95 hover:shadow-sm hover:backdrop-blur-xl hover:supports-[backdrop-filter]:bg-background/80'
           : 'border-b border-border/80 bg-background/95 shadow-sm backdrop-blur-xl supports-[backdrop-filter]:bg-background/80',
       )}
     >
@@ -56,8 +56,8 @@ export function SiteHeader() {
                 'rounded-full px-3 py-2 text-sm font-medium transition-colors',
                 transparent
                   ? pathname === item.href
-                    ? 'bg-white/20 text-white'
-                    : 'text-white/85 hover:bg-white/15 hover:text-white'
+                    ? 'bg-white/20 text-white group-hover:text-foreground group-hover:bg-secondary/50'
+                    : 'text-white/85 group-hover:text-foreground hover:bg-white/15 hover:text-white group-hover:hover:bg-secondary/50'
                   : pathname === item.href
                     ? 'bg-secondary text-accent'
                     : 'text-foreground/80 hover:bg-secondary hover:text-accent',
@@ -71,7 +71,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             href="/estimator"
-            className="paint-sheen hidden text-nowrap rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 sm:inline-flex"
+            className="paint-sheen hidden text-nowrap rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-all hover:bg-accent/90 group-hover:opacity-100 sm:inline-flex"
           >
             Get Free Quote
           </Link>
@@ -83,7 +83,7 @@ export function SiteHeader() {
               className={cn(
                 'hidden rounded-full border p-2 transition-all sm:inline-flex',
                 transparent
-                  ? 'border-white/40 bg-white/10 text-white hover:bg-white/20'
+                  ? 'border-white/40 bg-white/10 text-white hover:bg-white/20 group-hover:border-border/80 group-hover:bg-background group-hover:text-foreground'
                   : 'border-border bg-background text-foreground hover:bg-muted',
               )}
             >
@@ -96,7 +96,7 @@ export function SiteHeader() {
               className={cn(
                 'inline-flex items-center justify-center rounded-full border p-2 transition-all lg:hidden',
                 transparent
-                  ? 'border-white/40 bg-white/10 text-white hover:bg-white/20'
+                  ? 'border-white/40 bg-white/10 text-white hover:bg-white/20 group-hover:border-border/80 group-hover:bg-background group-hover:text-foreground'
                   : 'border-border bg-background text-foreground hover:bg-muted',
               )}
               aria-label="Open menu"
@@ -113,7 +113,7 @@ export function SiteHeader() {
                     onClick={() => setOpen(false)}
                     className={cn(
                       'rounded-lg px-3 py-2.5 text-base font-medium transition-colors hover:bg-secondary',
-                      pathname === item.href ? 'bg-secondary text-accent' : 'text-foreground/80',
+                      pathname === item.href ? 'bg-secondary text-accent' : 'text-accent/80 group-hover:text-accent',
                     )}
                   >
                     {item.title}
