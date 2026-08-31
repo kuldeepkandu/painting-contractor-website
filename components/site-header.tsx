@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Menu, Phone, PaintRoller } from 'lucide-react'
+import { Menu, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
@@ -35,17 +36,15 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:h-20 md:px-6">
         <Link href="/" className="flex items-center gap-2.5">
-          <span className="paint-sheen brand-gradient flex h-9 w-9 items-center justify-center rounded-md text-accent-foreground shadow-md shadow-accent/20">
-            <PaintRoller className="h-5 w-5" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className={cn('font-serif text-lg font-semibold md:text-xl', transparent ? 'text-white' : 'text-foreground')}>
-              {siteConfig.name}
-            </span>
-            <span className={cn('text-[10px] uppercase tracking-[0.18em]', transparent ? 'text-white/70' : 'text-muted-foreground')}>
-              {siteConfig.tagline}
-            </span>
-          </span>
+          <Image
+            src="/KanduColorCraft.png"
+            alt={siteConfig.name}
+            width={128}
+            height={128}
+            className="h-10 w-20 md:h-20 md:w-56 lg:h-24 lg:w-64 xl:h-28 xl:w-80"
+            priority
+          />
+          <span className="sr-only">{siteConfig.name} - {siteConfig.tagline}</span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

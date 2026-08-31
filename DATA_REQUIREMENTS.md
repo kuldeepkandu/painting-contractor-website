@@ -13,7 +13,7 @@ This document lists every piece of data shown on the website that needs to be re
 | Business Name | Chhotelal Kandu | Your full legal/trade name |
 | Tagline | Professional Painting Contractor | Your actual tagline |
 | Phone 1 | 9930959409 | Primary phone number |
-| Phone 2 | 8779035017 | Secondary / WhatsApp number |
+| Phone 2 | 7021134754 | Secondary / WhatsApp number |
 | WhatsApp number | 919930959409 | WhatsApp-enabled number (with country code) |
 | Email | chhotelalkandu@profinishpainters.com | Real business email |
 | Address | Room no. 61, Lakshmi Niwas Society… | Full business/service address |

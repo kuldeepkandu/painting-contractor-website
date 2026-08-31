@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Clock, PaintRoller } from 'lucide-react'
+import Image from 'next/image'
+import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { mainNav, siteConfig } from '@/lib/site-config'
 import { services } from '@/lib/content'
 
@@ -10,10 +11,14 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-white/15 text-white backdrop-blur">
-                <PaintRoller className="h-5 w-5" />
-              </span>
-              <span className="font-serif text-lg font-semibold">{siteConfig.name}</span>
+              <Image
+                src="/KanduColorCraft.png"
+                alt={siteConfig.name}
+                width={90}
+                height={80}
+                className="h-16 w-20"
+              />
+              <span className="sr-only">{siteConfig.name}</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/70">
               {siteConfig.brandPromise} Premium residential and commercial painting with skilled
