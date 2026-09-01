@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { DM_Serif_Display, Sora } from 'next/font/google'
+import { Montserrat, Sora } from 'next/font/google'
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
@@ -8,9 +8,8 @@ import { FloatingActions } from '@/components/floating-actions'
 import { siteConfig } from '@/lib/site-config'
 
 const sora = Sora({ variable: '--font-sora', subsets: ['latin'] })
-const dmSerif = DM_Serif_Display({
-  variable: '--font-dm-serif',
-  weight: '400',
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
   subsets: ['latin'],
 })
 
@@ -51,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${dmSerif.variable} bg-background`}
+      className={`${sora.variable} ${montserrat.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         <SiteHeader />

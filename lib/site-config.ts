@@ -8,8 +8,8 @@ export const siteConfig = {
   ],
   whatsapp: '919930959409',
   whatsappHref: 'https://wa.me/919930959409',
-  email: 'chhotelalkandu@profinishpainters.com',
-  emailHref: 'mailto:chhotelalkandu@profinishpainters.com',
+  email: 'chhotelalkandu@gmail.com',
+  emailHref: 'mailto:chhotelalkandu@gmail.com',
   address:
     'Room no. 61, Lakshmi Niwas Society, Hanuman nagar, Film City road, Goregaon east, Maharashtra Mumbai - 400065',
   hours: 'Mon–Sat: 8:00 AM – 7:00 PM',

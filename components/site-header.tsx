@@ -34,20 +34,20 @@ export function SiteHeader() {
           : 'border-b border-border/80 bg-background/95 shadow-sm backdrop-blur-xl supports-[backdrop-filter]:bg-background/80',
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:h-20 md:px-6">
+      <div className="mx-auto flex h-16 w-full items-center justify-between gap-4 px-4 md:h-20 md:px-6">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
             src="/KanduColorCraft.png"
             alt={siteConfig.name}
             width={128}
             height={128}
-            className="h-10 w-16 md:h-20 md:w-56 lg:h-20 lg:w-50 xl:h-20 xl:w-50"
+            className="h-10 w-auto md:h-20 md:w-auto lg:h-20 lg:w-auto xl:h-20 xl:w-auto"
             priority
           />
           <span className="sr-only">{siteConfig.name} - {siteConfig.tagline}</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 xl:flex">
           {mainNav.map((item) => (
             <Link
               key={item.href}
@@ -56,8 +56,8 @@ export function SiteHeader() {
                 'rounded-full px-3 py-2 text-sm font-medium transition-colors',
                 transparent
                   ? pathname === item.href
-                    ? 'bg-white/20 text-white group-hover:text-foreground group-hover:bg-secondary/50'
-                    : 'text-white/85 group-hover:text-foreground hover:bg-white/15 hover:text-white group-hover:hover:bg-secondary/50'
+                    ? 'bg-white/20 text-accent group-hover:text-foreground group-hover:bg-secondary/50'
+                    : 'text-white/85 group-hover:text-foreground hover:bg-white/15 hover:text-accent group-hover:hover:bg-secondary/50'
                   : pathname === item.href
                     ? 'bg-secondary text-accent'
                     : 'text-foreground/80 hover:bg-secondary hover:text-accent',
@@ -75,11 +75,10 @@ export function SiteHeader() {
           >
             Get Free Quote
           </Link>
-          {siteConfig.phoneNumbers.map((phone) => (
+          {siteConfig.phoneNumbers[0] && (
             <a
-              key={phone.href}
-              href={phone.href}
-              aria-label={`Call ${phone.display}`}
+              href={siteConfig.phoneNumbers[0].href}
+              aria-label={`Call ${siteConfig.phoneNumbers[0].display}`}
               className={cn(
                 'hidden rounded-full border p-2 transition-all sm:inline-flex',
                 transparent
@@ -89,12 +88,12 @@ export function SiteHeader() {
             >
               <Phone className="h-4 w-4" />
             </a>
-          ))}
+          )}
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               className={cn(
-                'inline-flex items-center justify-center rounded-full border p-2 transition-all lg:hidden',
+                'inline-flex items-center justify-center rounded-full border p-2 transition-all xl:hidden',
                 transparent
                   ? 'border-white/40 bg-white/10 text-white hover:bg-white/20 group-hover:border-border/80 group-hover:bg-background group-hover:text-foreground'
                   : 'border-border bg-background text-foreground hover:bg-muted',

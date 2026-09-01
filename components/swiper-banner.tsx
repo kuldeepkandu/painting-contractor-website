@@ -37,7 +37,7 @@ export function SwiperBanner({
       <div className="relative isolate min-h-screen w-full overflow-hidden border-b border-border/80">
         <button
           type="button"
-          className="hero-prev absolute left-2 top-1/2 z-20 -translate-y-1/2 cursor-pointer text-white/30 transition hover:text-white/70 md:left-6"
+          className="hero-prev absolute left-2 top-1/2 z-20 hidden -translate-y-1/2 cursor-pointer text-white/30 transition hover:text-white/70 md:inline-flex md:left-6"
           aria-label="Previous banner slide"
         >
           <ChevronLeft size={84} strokeWidth={0.75} />
@@ -45,7 +45,7 @@ export function SwiperBanner({
 
         <button
           type="button"
-          className="hero-next absolute right-2 top-1/2 z-20 -translate-y-1/2 cursor-pointer text-white/30 transition hover:text-white/70 md:right-6"
+          className="hero-next absolute right-2 top-1/2 z-20 hidden -translate-y-1/2 cursor-pointer text-white/30 transition hover:text-white/70 md:inline-flex md:right-6"
           aria-label="Next banner slide"
         >
           <ChevronRight size={84} strokeWidth={0.75} />
@@ -91,7 +91,8 @@ export function SwiperBanner({
           ))}
         </Swiper>
 
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/65 to-primary/40" />
+<div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
+
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.16),transparent_38%)]" />
 
         <div className="absolute inset-0 z-10 flex items-center pt-16 md:pt-20">

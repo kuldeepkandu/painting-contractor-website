@@ -30,10 +30,10 @@ export function Carousel({
 }: CarouselProps) {
   return (
     <div className={`w-full ${containerClassName}`}>
-      <div className="relative w-full overflow-visible px-12 md:px-8">
+      <div className="relative w-full overflow-visible px-4 sm:px-6 md:px-10">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={10}
+          spaceBetween={16}
           slidesPerView={slidesPerView}
           pagination={
             showPagination
@@ -55,16 +55,20 @@ export function Carousel({
           autoplay={{
             delay: autoplayDelay,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           breakpoints={{
             320: {
-              slidesPerView: 1,
+              slidesPerView: 1.12,
+              spaceBetween: 12,
             },
             640: {
               slidesPerView: Math.min(slidesPerView as number, 2) || 2,
+              spaceBetween: 16,
             },
             1024: {
               slidesPerView: slidesPerView as number,
+              spaceBetween: 20,
             },
           }}
           className={`modern-carousel-swiper carousel-${carouselId} pb-16`}
@@ -81,18 +85,18 @@ export function Carousel({
         {showNavigation && (
           <>
             <button
-              className={`nav-prev-${carouselId} carousel-nav-btn carousel-nav-prev group cursor-pointer absolute  top-1/2 left-3 -translate-y-1/2 z-20 flex items-center justify-center backdrop-blur-sm  rounded-full border border-orange-600 text-black transition`}
+              className={`nav-prev-${carouselId} carousel-nav-btn carousel-nav-prev group absolute top-1/2 left-0 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-md backdrop-blur-sm transition hover:bg-accent hover:text-accent-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring`}
               aria-label="Previous slide"
               type="button"
             >
-              <ChevronLeft size={35} strokeWidth={1.5} className=" transition-transform group-hover:scale-110" />
+              <ChevronLeft className="h-5 w-5 transition-transform group-hover:scale-110" />
             </button>
             <button
-              className={`nav-next-${carouselId} carousel-nav-btn carousel-nav-next group cursor-pointer absolute  top-1/2 right-3 -translate-y-1/2 z-20 flex items-center justify-center backdrop-blur-sm  rounded-full border border-orange-600 text-black transition`}
+              className={`nav-next-${carouselId} carousel-nav-btn carousel-nav-next group absolute top-1/2 right-0 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-md backdrop-blur-sm transition hover:bg-accent hover:text-accent-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring`}
               aria-label="Next slide"
               type="button"
             >
-              <ChevronRight size={35} strokeWidth={1.5} className="transition-transform group-hover:scale-110" />
+              <ChevronRight className="h-5 w-5 transition-transform group-hover:scale-110" />
             </button>
           </>
         )}
@@ -102,13 +106,6 @@ export function Carousel({
       </div>
 
       <style jsx>{`
-        
-
-        
-
-      
-       
-
         :global(.carousel-pagination) {
           position: absolute;
           bottom: 10px;
@@ -121,20 +118,7 @@ export function Carousel({
           z-index: 15;
         }
 
-        
-
-       
-
-        
-
-        
-
         @media (max-width: 1024px) {
-          :global(.carousel-nav-btn) {
-            width: 40px;
-            height: 40px;
-          }
-
           :global(.carousel-nav-prev) {
             left: 4px;
           }
@@ -145,27 +129,21 @@ export function Carousel({
         }
 
         @media (max-width: 768px) {
-          :global(.carousel-nav-btn) {
-            width: 36px;
-            height: 36px;
-          }
-
           :global(.carousel-nav-prev) {
-            left: 0px;
+            left: 2px;
           }
 
           :global(.carousel-nav-next) {
-            right: 0px;
+            right: 2px;
           }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 639px) {
           :global(.carousel-nav-btn) {
-            width: 32px;
-            height: 32px;
-            display: flex;
+            display: none;
           }
         }
+
       `}</style>
     </div>
   )

@@ -9,14 +9,14 @@ export function ProjectsGallery({ limit }: { limit?: number }) {
   const list = limit ? projects.slice(0, limit) : projects
 
   const items = list.map((p) => (
-    <article key={p.title} className="soft-card group overflow-hidden rounded-xl border border-border/80 h-full">
+    <article key={p.title} className="group h-full overflow-hidden rounded-xl border border-border/80 bg-card">
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={p.image || '/placeholder.svg'}
           alt={p.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) calc(50vw - 2rem), calc(28.6vw - 2rem)"
         />
         <Badge className="absolute left-3 top-3 bg-accent text-accent-foreground hover:bg-accent">
           {p.category}

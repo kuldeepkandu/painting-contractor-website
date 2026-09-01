@@ -26,6 +26,7 @@ export function SiteFooter() {
             </p>
           </div>
 
+<div className="grid grid-cols-2 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="font-serif text-base font-semibold">Quick Links</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
@@ -56,6 +57,7 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
+          </div>
           </div>
 
           <div>

@@ -46,7 +46,7 @@ export default function HomePage() {
       </SwiperBanner>
       <StatsBar />
 
-      <section className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
+      <section className="mx-auto max-w-7xl px-6 py-16 md:px-6 md:py-24">
         <SectionHeading
           eyebrow="What We Do"
           title="Complete Painting Solutions"

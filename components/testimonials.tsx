@@ -9,7 +9,7 @@ export function Testimonials({ limit }: { limit?: number }) {
   const list = limit ? testimonials.slice(0, limit) : testimonials
 
   const items = list.map((t) => (
-    <Card key={t.name} className="soft-card flex flex-col gap-4 border-border/80 p-6 h-full">
+    <Card key={t.name} className="flex h-full flex-col gap-4 border-border/80 p-6">
       <Quote className="h-7 w-7 text-accent/40" />
       <div className="flex gap-0.5 text-accent">
         {Array.from({ length: t.rating }).map((_, i) => (

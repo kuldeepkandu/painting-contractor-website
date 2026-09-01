@@ -12,7 +12,7 @@ export function ServicesGrid({ limit }: { limit?: number }) {
   const items = list.map((s) => {
     const Icon = s.icon
     return (
-      <Card key={s.slug} className="soft-card group flex flex-col gap-4 border-border/80 p-6 transition-all hover:-translate-y-1 h-full">
+      <Card key={s.slug} className="group flex h-full flex-col gap-4 border-border/80 p-6 transition-all hover:-translate-y-1">
         <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
           <Icon className="h-6 w-6" />
         </span>
