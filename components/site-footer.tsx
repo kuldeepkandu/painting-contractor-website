@@ -8,15 +8,15 @@ export function SiteFooter() {
   return (
     <footer className="brand-gradient border-t border-border/60 text-primary-foreground">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-6">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5">
               <Image
                 src="/KanduColorCraft.png"
                 alt={siteConfig.name}
                 width={128}
                 height={128}
-                className="h-10 w-16 md:h-20 md:w-56 lg:h-20 lg:w-50 xl:h-20 xl:w-50"
+                className="h-10 w-auto md:h-20"
               />
               <span className="sr-only">{siteConfig.name}</span>
             </Link>
@@ -26,41 +26,41 @@ export function SiteFooter() {
             </p>
           </div>
 
-<div className="grid grid-cols-2 gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <h3 className="font-serif text-base font-semibold">Quick Links</h3>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              {mainNav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-primary-foreground/75 transition-colors hover:text-white"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="grid grid-cols-2 gap-6 sm:col-span-2 sm:grid-cols-2 lg:col-span-2">
+            <div>
+              <h3 className="font-serif text-base font-semibold">Quick Links</h3>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {mainNav.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-primary-foreground/75 transition-colors hover:text-white"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-serif text-base font-semibold">Our Services</h3>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {services.slice(0, 6).map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/services#${s.slug}`}
+                      className="text-primary-foreground/75 transition-colors hover:text-white"
+                    >
+                      {s.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <h3 className="font-serif text-base font-semibold">Our Services</h3>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              {services.slice(0, 6).map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={`/services#${s.slug}`}
-                    className="text-primary-foreground/75 transition-colors hover:text-white"
-                  >
-                    {s.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          </div>
-
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="font-serif text-base font-semibold">Get In Touch</h3>
             <ul className="mt-4 space-y-3 text-sm text-primary-foreground/70">
               <li className="flex items-start gap-3">

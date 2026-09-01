@@ -15,7 +15,7 @@ This document lists every piece of data shown on the website that needs to be re
 | Phone 1 | 9930959409 | Primary phone number |
 | Phone 2 | 7021134754 | Secondary / WhatsApp number |
 | WhatsApp number | 919930959409 | WhatsApp-enabled number (with country code) |
-| Email | chhotelalkandu@profinishpainters.com | Real business email |
+| Email | chhotelalkandu@gmail.com | Real business email |
 | Address | Room no. 61, Lakshmi Niwas Society… | Full business/service address |
 | Working Hours | Mon–Sat: 8:00 AM – 7:00 PM | Actual working hours |
 
