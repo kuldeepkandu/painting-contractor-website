@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { CheckCircle2 } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+import { AlertCircle, CheckCircle2, LoaderCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -17,11 +18,45 @@ import { services } from '@/lib/content'
 
 export function QuoteForm({ compact = false }: { compact?: boolean }) {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // UI-only submission. Wire up to a database/email service later.
-    setSubmitted(true)
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError('Email delivery is not configured yet. Please call or WhatsApp us instead.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setError(null)
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.get('name'),
+          from_email: formData.get('email'),
+          phone: formData.get('phone'),
+          service: formData.get('service') || 'Not specified',
+          message: formData.get('message'),
+        },
+        { publicKey }
+      )
+      form.reset()
+      setSubmitted(true)
+    } catch {
+      setError('We could not send your request. Please try again or contact us by phone or WhatsApp.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -135,10 +170,24 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       <Button
         type="submit"
         size="lg"
+        disabled={isSubmitting}
         className="paint-sheen rounded-full bg-accent text-accent-foreground hover:bg-accent/90"
       >
-        Request Free Quote
+        {isSubmitting ? (
+          <>
+            <LoaderCircle className="h-4 w-4 animate-spin" />
+            Sending request...
+          </>
+        ) : (
+          'Request Free Quote'
+        )}
       </Button>
+      {error && (
+        <p role="alert" className="flex items-center justify-center gap-2 text-center text-sm text-destructive">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          {error}
+        </p>
+      )}
       <p className="text-center text-xs text-muted-foreground">
         No obligation. We respond within 24 hours.
       </p>

@@ -1,5 +1,7 @@
 export const siteConfig = {
   name: 'KANDU COLORCRAFT',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kanducolorcraft.vercel.app',
+  locale: 'en_IN',
   tagline: 'Painting • Finishing • Protection',
   brandPromise: 'Crafting Colours. Transforming Spaces.',
   phoneNumbers: [
