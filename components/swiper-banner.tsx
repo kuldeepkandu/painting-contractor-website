@@ -91,10 +91,8 @@ export function SwiperBanner({
           ))}
         </Swiper>
 
-<div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
-
+        <div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.16),transparent_38%)]" />
-
         <div className="absolute inset-0 z-10 flex items-center pt-16 md:pt-20">
           <div className="mx-auto max-w-7xl w-full px-4 text-center md:px-6">
             {eyebrow && (

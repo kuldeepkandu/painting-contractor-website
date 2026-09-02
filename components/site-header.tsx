@@ -53,14 +53,14 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className={cn(
-                'rounded-full px-3 py-2 text-sm font-medium transition-colors',
+                'link-underline rounded-full px-3 py-2 text-sm font-medium transition-colors',
                 transparent
                   ? pathname === item.href
-                    ? 'bg-white/20 text-accent group-hover:text-foreground group-hover:bg-secondary/50'
-                    : 'text-white/85 group-hover:text-foreground hover:bg-white/15 hover:text-accent group-hover:hover:bg-secondary/50'
+                    ? 'text-accent'
+                    : 'text-white/85 group-hover:text-black'
                   : pathname === item.href
-                    ? 'bg-secondary text-accent'
-                    : 'text-foreground/80 hover:bg-secondary hover:text-accent',
+                    ? 'text-accent'
+                    : 'text-foreground/80',
               )}
             >
               {item.title}
@@ -111,8 +111,8 @@ export function SiteHeader() {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      'rounded-lg px-3 py-2.5 text-base font-medium transition-colors hover:bg-secondary',
-                      pathname === item.href ? 'bg-secondary text-accent' : 'text-accent/80 group-hover:text-accent',
+                      'link-underline rounded-lg px-3 py-2.5 text-base font-medium transition-colors',
+                      pathname === item.href ? 'text-accent' : 'text-accent/80 group-hover:text-accent',
                     )}
                   >
                     {item.title}

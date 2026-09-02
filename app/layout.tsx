@@ -5,6 +5,7 @@ import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { FloatingActions } from '@/components/floating-actions'
+import SplashCursor from '@/components/SplashCursor'
 import { siteConfig } from '@/lib/site-config'
 
 const sora = Sora({ variable: '--font-sora', subsets: ['latin'] })
@@ -120,7 +121,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
         <SiteHeader />
-        <main>{children}</main>
+        <div className="relative">
+          <SplashCursor className="pointer-events-none hidden md:block opacity-80" />
+          <main>{children}</main>
+        </div>
         <SiteFooter />
         <FloatingActions />
         {process.env.NODE_ENV === 'production' && <Analytics />}

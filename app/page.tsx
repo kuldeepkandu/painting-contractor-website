@@ -7,6 +7,7 @@ import { Testimonials } from '@/components/testimonials'
 import { ProjectsGallery } from '@/components/projects-gallery'
 import { CtaBanner } from '@/components/cta-banner'
 import { SwiperBanner } from '@/components/swiper-banner'
+import SplashCursor from '@/components/SplashCursor'
 import { siteConfig } from '@/lib/site-config'
 import { Phone } from 'lucide-react'
 
@@ -20,6 +21,7 @@ const homeBannerSlides = [
 export default function HomePage() {
   return (
     <>
+      <SplashCursor className="hidden md:block opacity-90" />
       <SwiperBanner
         slides={homeBannerSlides}
         title="Transform Your Space with Professional Painting"

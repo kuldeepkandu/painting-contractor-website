@@ -34,7 +34,7 @@ export function SiteFooter() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-primary-foreground/75 transition-colors hover:text-white"
+                      className=" text-primary-foreground/75 transition-colors hover:text-accent link-underline"
                     >
                       {item.title}
                     </Link>
@@ -50,7 +50,7 @@ export function SiteFooter() {
                   <li key={s.slug}>
                     <Link
                       href={`/services#${s.slug}`}
-                      className="text-primary-foreground/75 transition-colors hover:text-white"
+                      className="text-primary-foreground/75 transition-colors hover:text-accent link-underline"
                     >
                       {s.title}
                     </Link>
@@ -67,7 +67,7 @@ export function SiteFooter() {
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-white" />
                 <div className="flex flex-col gap-1">
                   {siteConfig.phoneNumbers.map((phone) => (
-                    <a key={phone.href} href={phone.href} className="hover:text-white">
+                    <a key={phone.href} href={phone.href} className="hover:text-accent link-underline">
                       {phone.display}
                     </a>
                   ))}
@@ -75,7 +75,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-white" />
-                <a href={siteConfig.emailHref} className="hover:text-white">
+                <a href={siteConfig.emailHref} className="hover:text-accent link-underline">
                   {siteConfig.email}
                 </a>
               </li>
@@ -95,7 +95,7 @@ export function SiteFooter() {
           <p>
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
-          <p>Licensed &amp; insured painting contractors.</p>
+          <p>insured painting contractors.</p>
         </div>
       </div>
     </footer>
